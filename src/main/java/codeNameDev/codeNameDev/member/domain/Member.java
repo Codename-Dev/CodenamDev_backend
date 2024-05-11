@@ -1,6 +1,7 @@
 package codeNameDev.codeNameDev.member.domain;
 
 import codeNameDev.codeNameDev.common.entity.*;
+import codeNameDev.codeNameDev.member.domain.dto.MemberCreateDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,4 +36,27 @@ public class Member extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Builder.Default
     private Status status = Status.ACTIVE;
+
+
+    public static Member makeMember(MemberCreateDto dto){
+        return Member.builder()
+                .nickname(dto.getNickname())
+                .email(dto.getEmail())
+                .password(dto.getPassword())
+                .role(Role.USER)
+                .socialType(dto.getSocialType())
+                .status(Status.ACTIVE)
+                .build();
+    }
+
+    public static Member makeAdminMember(MemberCreateDto dto){
+        return Member.builder()
+                .nickname(dto.getNickname())
+                .email(dto.getEmail())
+                .password(dto.getPassword())
+                .role(Role.ADMIN)
+                .socialType(dto.getSocialType())
+                .status(Status.ACTIVE)
+                .build();
+    }
 }
