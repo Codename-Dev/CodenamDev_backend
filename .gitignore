@@ -45,7 +45,7 @@ build
 *.log
 
 ### 설정 파일
-config/
+common/config/SecurityConfig
 
 ### application.yml
 application.yml

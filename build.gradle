@@ -24,11 +24,28 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
+	// spring session -> 세션 사용하실 거라면 아래 주석 지워주시고, 토큰 사용하실 거라면 이 부분 모두 지워주세요!
+	// implementation 'org.springframework.session:spring-session-core'
+
+	// H2 database
 	runtimeOnly 'com.h2database:h2'
+
+	// MySQL
 	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// logging
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
+
+	// Hibernate
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
+
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
